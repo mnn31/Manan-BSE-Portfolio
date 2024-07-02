@@ -7,7 +7,6 @@ The deceptively simple yet perfect game! Combining the love of mazes with an exi
 |:--:|:--:|:--:|:--:|
 | Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore
 
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](Manan_G.jpg)
   
