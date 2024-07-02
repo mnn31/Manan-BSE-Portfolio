@@ -1,11 +1,7 @@
 # Tilt Controlled Marble Maze
 The deceptively simple yet perfect game! Combining the love of mazes with an exiting touch of robotics, this project uses the accelerometer on the Circuit Playground Express board to control the X and Y directions of motion of a maze. You can guide a marble through the maze by simply tilting the CPX. What's neat is that this project is constructed using only cardboard, hot glue, and a couple of screws.
 
-
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
+![Headstone Image]([Manan_G.jpg](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbluestampengineering.com%2F&psig=AOvVaw1ID8yACAZiB3wmvG0w1z4O&ust=1720033928827000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLCss-2HiYcDFQAAAAAdAAAAABAE)) 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
