@@ -8,7 +8,7 @@ The deceptively simple yet perfect game! Combining the love of mazes with an exi
 | Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore
 
 
-![Headstone Image](Manan_G.jpg)
+![Headstone Image](MananMaze.jpg)
   
 # Final Milestone
 
