@@ -3,10 +3,11 @@ The deceptively simple yet perfect game! Combining the love of mazes with an exi
 
 ![Headstone Image](logo.svg)
 
+<p align="center">
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore
-
+</p>
 
 ![Headstone Image](MananMaze.jpg)
   
