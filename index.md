@@ -4,9 +4,9 @@ This deceptively simple yet perfect game combines my love for robotics with a cl
 ![Headstone Image](MananMaze.jpg)
 
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
-|:--:|:--:|:--:|:--:|
-| Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore
+| **Engineer** | **School** | **Area of Interest** | **Grade** | **Date** |
+|:--:|:--:|:--:|:--:|:--:|
+| Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore | July 2024
 
   
 Final Milestone
