@@ -53,11 +53,14 @@ One of things that I'm sure I will take away from BlueStamp is how I learnt Obje
 
 
 ```python
-# Edited by Manan G
 # SPDX-FileCopyrightText: 2019 Anne Barela for Adafruit Industries
 # SPDX-License-Identifier: MIT
+# Edited by Manan G, BSE
 # CircuitPython code for the Gyroscopic Marble Maze
 # Adafruit Industries, 2019. MIT License
+
+
+# Jul 1 - 12, 2024 @ BSE
 import time
 import board
 import pwmio
@@ -73,12 +76,17 @@ pwm2 = pwmio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
 # Create a servo object, my_servo.
 my_servo1 = servo.Servo(pwm1)
 my_servo2 = servo.Servo(pwm2)
-NUM_READINGS = 8
+NUM_READINGS = 18
 roll_readings = [90] * NUM_READINGS
 pitch_readings = [90] * NUM_READINGS
 
 def Average(lst):
-    return (sum(lst) / len(lst))
+    return (sum(lst) / (len(lst)))
+
+my_servo1.angle = 90
+my_servo2.angle = 0
+
+    
 
 while True:
     x, y, z = cpx.acceleration # x = green
