@@ -4,12 +4,12 @@ This deceptively simple yet perfect game combines my love for robotics with a cl
 ![Headstone Image](MananMaze.jpg)
 
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** | **Date** |
-|:--:|:--:|:--:|:--:|:--:|
-| Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore | July 2024
+| **Engineer** | **School** | **Area of Interest** | **Grade** |
+|:--:|:--:|:--:|:--:|
+| Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore |
 
   
-Final Milestone
+# Final Milestone
 
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
