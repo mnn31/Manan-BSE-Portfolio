@@ -134,7 +134,7 @@ while True:
     x, y, z = cpx.acceleration
     roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
     pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
-    updt_led_from_tilt(x, y)
+    updt_led_from_tilt(x, y) # Mod!
     time.sleep(0.02)
 ```
 
