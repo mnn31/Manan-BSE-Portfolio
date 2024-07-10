@@ -53,58 +53,83 @@ One of things that I'm sure I will take away from BlueStamp is how I learnt Obje
 
 
 ```python
-# SPDX-FileCopyrightText: 2019 Anne Barela for Adafruit Industries
-# SPDX-License-Identifier: MIT
-# Edited by Manan G, BSE
-# CircuitPython code for the Gyroscopic Marble Maze
-# Adafruit Industries, 2019. MIT License
+# Created by Manan G, BSE
+# Inspired by Adafruit Industries, 2019. MIT License
+# BSE, Jul 2024
 
-
-# Jul 1 - 12, 2024 @ BSE
-import time
-import board
-import pwmio
+import time, board, pwmio, simpleio
 from adafruit_motor import servo
-import simpleio
+from adafruit_circuitplayground import cp
 from adafruit_circuitplayground.express import cpx
 
+'######################### HELPER #########################'
 
-# create a PWMOut object on Pin A2.
+def map_range_with_sensitivity(value, min_in, max_in, min_out, max_out, sensitivity):
+    return simpleio.map_range(value * sensitivity, min_in, max_in, min_out, max_out)
+
+def avg(lst):
+    return (sum(lst)) / (len(lst))
+  
+def updt_servo_angle(value, servo, readings):
+    # Apply sensitivity based on difficulty
+    adjusted_value = map_range_with_sensitivity(value, -9.8, 9.8, 0, 180, current_difficulty)
+
+    # Update readings list and calc average
+    readings = readings[1:]
+    readings.append(adjusted_value)
+    adjusted_value = avg(readings)
+    print(adjusted_value)
+    if servo == my_servo1:
+        servo.angle = 180 - adjusted_value
+    else:
+        servo.angle = adjusted_value
+    return readings
+
+def updt_led_from_tilt(x, y):
+    # MOD! LED color control based on |tilt| (red for roll, green for pitch)
+    scaled_red = abs(x) * 2.55
+    scaled_green = abs(y) * 2.55
+    cp.pixels.fill((scaled_red, scaled_green, 0))  # Light up CPX RGB display
+
+### Servo and LED Setup
+# Create PWM objects in pin A1 and A2
 pwm1 = pwmio.PWMOut(board.A1, duty_cycle=2 ** 15, frequency=50)
 pwm2 = pwmio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
 
-# Create a servo object, my_servo.
+# Create object 'servo'
 my_servo1 = servo.Servo(pwm1)
 my_servo2 = servo.Servo(pwm2)
-NUM_READINGS = 18
+
+'######################### MAIN PROGRAM #########################'
+
+### Reset servos to 0 degrees every time the program starts
+print(0)
+my_servo1.angle = 0
+my_servo2.angle = 0
+
+### Initialize mechanism to read tilt angles
+NUM_READINGS = 9
 roll_readings = [90] * NUM_READINGS
 pitch_readings = [90] * NUM_READINGS
 
-def Average(lst):
-    return (sum(lst) / (len(lst)))
+### MOD! Define difficulty levels with different sensitivity multipliers
+DIFFICULTY_LOW = 1.0
+DIFFICULTY_MEDIUM = 1.5
+DIFFICULTY_HIGH = 2.0
+current_difficulty = DIFFICULTY_HIGH
 
-my_servo1.angle = 90
-my_servo2.angle = 0
-
-    
-
+'''
+Until it is unplugged, the CPX must read in acceleration from the CPX,
+update the positions of the two servos, updated the tilt readings of each servo, 
+and convert the tilt to a rgb display color code composed of more red hure for x- 
+and more green hue for y-direction tilt.
+'''
 while True:
-    x, y, z = cpx.acceleration # x = green
-    print((x, y, z))
-    roll = simpleio.map_range(x, -9.8, 9.8, 0, 180)
-    roll_readings = roll_readings[1:]
-    roll_readings.append(roll)
-    roll = Average(roll_readings)
-    print(roll)
-    my_servo1.angle = roll
-    pitch = simpleio.map_range(y, -9.8, 9.8, 0, 180)
-    pitch_readings = pitch_readings[1:]
-    pitch_readings.append(pitch)
-    pitch = Average(pitch_readings)
-    print(pitch)
-    my_servo2.angle = pitch
-    time.sleep(0.05)
-
+    x, y, z = cpx.acceleration
+    roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
+    pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
+    updt_led_from_tilt(x, y)
+    time.sleep(0.02)
 ```
 
 
