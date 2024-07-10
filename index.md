@@ -67,15 +67,12 @@ from adafruit_motor import servo
 
 "######################### HELPER #########################"
 
-
 def map_range_w_sensitivity(value, min_in, max_in, min_out, max_out, sensitivity):
     return simpleio.map_range(value * sensitivity, min_in, max_in, min_out, max_out)
 
-
 def avg(lst):
     return (sum(lst)) / (len(lst))
-
-
+    
 def updt_servo_angle(value, servo, readings):
     # Apply sensitivity based on difficulty
     adjusted_value = map_range_w_sensitivity(
@@ -89,13 +86,46 @@ def updt_servo_angle(value, servo, readings):
     servo.angle = adjusted_value
     return readings
 
-
 def updt_led_from_tilt(x, y):
     # MOD! LED color control based on |tilt| (red for roll, green for pitch)
-    scaled_red = abs(x) * 2.55
-    scaled_green = abs(y) * 2.55
-    cp.pixels.fill((scaled_red, scaled_green, 0))  # Light up CPX RGB display
+    scaled_red = abs(x) * 6
+    scaled_green = abs(y) * 6
+    cp.pixels[3:10] = [(scaled_red, scaled_green, 1)] * 7  # Light up half of display
 
+def updt_difficulty():
+    global current_difficulty, checker
+    # Turn off all LEDs initially
+    cp.pixels[1:4] = [(0, 0, 0)] * 3  # Set all pixels to black (off)
+    cp.pixels.show()  # Update display to reflect changes
+    if current_difficulty <= 1 and not checker:
+        current_difficulty = 1
+        checker = True
+        cp.pixels[0] = (0, 0, 20)
+    else:
+        current_difficulty += 0.5
+
+        if current_difficulty == DIFFICULTY_LOW or current_difficulty == 0.5:
+            current_difficulty = DIFFICULTY_LOW
+            cp.pixels[0] = (0, 0, 20)  # Blue for low difficulty
+        elif current_difficulty == DIFFICULTY_MEDIUM:
+            cp.pixels[0] = (0, 0, 20)  # Blue
+            cp.pixels[1] = (0, 20, 0)  # Green for medium difficulty
+        elif current_difficulty == DIFFICULTY_HIGH:
+            cp.pixels[0] = (0, 0, 20)  # Blue
+            cp.pixels[1] = (0, 20, 0)  # Green
+            cp.pixels[2] = (20, 0, 0)  # Red for high difficulty
+        else:
+            current_difficulty = 0.5  # Reset counter after three presses
+            checker = False
+
+    cp.pixels.show()
+    time.sleep(0.2)
+
+def basic_funcs():
+    global x, y, my_servo1, roll_readings, pitch_readings
+    roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
+    pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
+    updt_led_from_tilt(x, y)  # Mod!
 
 # Servo and LED Setup
 # Create PWM objects in pin A1 and A2
@@ -113,28 +143,27 @@ DIFFICULTY_LOW = 1.0
 DIFFICULTY_MEDIUM = 1.5
 DIFFICULTY_HIGH = 2.0
 current_difficulty = DIFFICULTY_LOW
-
-# Reset servos to 180 degrees every time the program starts
-print(180)
-my_servo1.angle = 180
-my_servo2.angle = 180
+checker = False
 
 # Initialize mechanism to read tilt angles
 NUM_READINGS = 8
-roll_readings = [90] * NUM_READINGS
-pitch_readings = [90] * NUM_READINGS
+roll_readings = [120] * NUM_READINGS
+pitch_readings = [120] * NUM_READINGS
 
 """
 Until it is unplugged, the CPX must read in acceleration, update the positions 
 of the two servos, updated the tilt readings of each servo, and convert the tilt 
 to an RGB display color code composed of more red hue for an x- and more green hue 
 for a y-direction tilt.
+
 """
-while True:
+
+while avg(roll_readings) != 0:
     x, y, z = cpx.acceleration
-    roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
-    pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
-    updt_led_from_tilt(x, y) # Mod!
+    # Check for button presses
+    if cp.button_a:
+        updt_difficulty()
+    basic_funcs()
     time.sleep(0.02)
 ```
 
