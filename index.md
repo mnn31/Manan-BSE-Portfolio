@@ -114,25 +114,24 @@ def updt_difficulty():
         if current_difficulty == DIFFICULTY_LOW or current_difficulty == 0.5:
             current_difficulty = DIFFICULTY_LOW
             cp.pixels[0] = (0, 0, 20)  # Blue for low difficulty
+            cp.play_tone(275, 0.5)
         elif current_difficulty == DIFFICULTY_MEDIUM:
             cp.pixels[0] = (0, 0, 20)  # Blue
             cp.pixels[1] = (0, 20, 0)  # Green for medium difficulty
+            cp.play_tone(295, 0.5)
         elif current_difficulty == DIFFICULTY_HIGH:
             cp.pixels[0] = (0, 0, 20)  # Blue
             cp.pixels[1] = (0, 20, 0)  # Green
             cp.pixels[2] = (20, 0, 0)  # Red for high difficulty
+            cp.play_tone(315, 0.5)
         else:
-            current_difficulty = 0.5  # Reset counter after three presses
+            current_difficulty = 1  # Reset counter after three presses
             checker = False
+            cp.play_tone(255, 0.5)
+
 
     cp.pixels.show()
-    time.sleep(0.2)
-
-def basic_funcs():
-    global x, y, my_servo1, roll_readings, pitch_readings
-    roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
-    pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
-    updt_led_from_tilt(x, y)  # Mod!
+    time.sleep(0.02)
 
 # Servo and LED Setup
 # Create PWM objects in pin A1 and A2
@@ -153,7 +152,7 @@ current_difficulty = DIFFICULTY_LOW
 checker = False
 
 # Initialize mechanism to read tilt angles
-NUM_READINGS = 8
+NUM_READINGS = 10
 roll_readings = [120] * NUM_READINGS
 pitch_readings = [120] * NUM_READINGS
 
@@ -164,13 +163,13 @@ to an RGB display color code composed of more red hue for an x- and more green h
 for a y-direction tilt.
 
 """
-
 while avg(roll_readings) != 0:
     x, y, z = cpx.acceleration
-    # Check for button presses
-    if cp.button_a:
+    if cp.button_a: 
         updt_difficulty()
-    basic_funcs()
+    roll_readings = updt_servo_angle(x, my_servo1, roll_readings)
+    pitch_readings = updt_servo_angle(y, my_servo2, pitch_readings)
+    updt_led_from_tilt(x, y)  # Mod!
     time.sleep(0.02)
 ```
 
