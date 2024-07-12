@@ -3,9 +3,11 @@ This deceptively simple yet perfect game combines my love for robotics with a cl
 
 <img src="Manan_HS.jpg" width="500">
 
+
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Manan G | The Harker School | Mechanical Engineering | Incoming Sophomore |
+
 
 # Final Product + Modifications
 
