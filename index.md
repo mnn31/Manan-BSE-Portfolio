@@ -2,6 +2,8 @@
 This deceptively simple yet perfect game combines my love for robotics with a classic game, mazes. Using an accelerometer on the Circuit Playground Express board to control the X and Y directions of motion of a maze, the user can guide a marble through the maze by simply tilting the CPX. What's neat is that this project is constructed using only cardboard, hot glue, and a couple of screws.
 
 ![Headstone Image](Manan_HS.jpg)
+<img src="Manan_HS.jpg" width="48">
+
 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
