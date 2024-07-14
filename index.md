@@ -37,12 +37,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="600" height="337.5" src="https://www.youtube.com/embed/n2mZ4HnMIKA" title="Manan G. Second Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
-
+For my second milestone, I completed constructing the cardboard parts of the Maze. I began by cutting an 8x8 inch cardboard square for the maze. I received training on using an X-Acto knife and wore safety goggles and gloves throughout the process. Cutting the maze walls was tedious, but the knife and scissors were useful. I outlined where the walls would go and cut cardboard strips to the appropriate lengths. To construct the frame, I measured and cut a 9.5 in x 9.5 inch square to fit the maze snugly, making sure it wasn't too tight. The frame will hold the X-axis controlling servo, while the base pillars will support the maze and frame, holding the Y-axis servo. Using a hot glue gun was initially intimidating, and I often forgot the glue was hot, leading to several close-calls with burns. Despite my hesitations, I used the hot glue gun to secure all the walls in place. This phase taught me valuable lessons in detailed construction and overcoming frustrating challenges. Next, I will install the servos and suspend the maze + frame in the base-pillars.
 
 # First Milestone
 
