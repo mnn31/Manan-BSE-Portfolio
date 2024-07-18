@@ -13,25 +13,13 @@ This deceptively simple yet perfect game combines my love for robotics with a cl
 
 <iframe width="600" height="337.5" src="https://www.youtube.com/embed/J0dHu-L973g?si=cwvlc1rMnfl08ZGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
-
-
 # Final Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="600" height="337.5" src="https://www.youtube.com/embed/H_UHTcFpMa8?si=cbOVfYRwUvffjqpX" title="YouTube video player" frameborder="4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
-
+For my third milestone, I attached the frame to the maze using jumbo screws and attached the X-axis motor. I then suspended this setup in the frame for the Y-axis motor. Making holes for the servos was challenging as scissors made too large a cut and hammers risked creating a bigger opening. In the end, I used the X-Acto knife for a rough cut. The scissors were useful for making holes for the jumbo screws, where I inserted nuts to create an axle for the maze to tilt. The X-axis servo arm kept coming off from the screw, so I had to use more hot glue to secure it. Since my previous milestone, I have successfully integrated the mechanical components with the electronics. The biggest challenge at BSE was ensuring precise cuts and connections, but I triumphed in assembling a functional structure. I learned about precise construction, overcoming mechanical challenges, and effective use of tools like the X-Acto knife and hot glue gun. In the future, I hope to learn more about advanced robotics and programming to build more complex projects.
 
 # Second Milestone
 
